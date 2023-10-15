@@ -1,60 +1,23 @@
-# p5.js Template
+# HW06
 
-This is a README file that can be used to describe and document your assignment.
+I implemented Sol LeWitt's Wall Drawing 118 again, but this time it's interactive and drawn using only text.
 
-Markdown Cheatsheet (from [https://www.markdownguide.org/cheat-sheet/](https://www.markdownguide.org/cheat-sheet/)):
+![](https://dm-gy-6063-2023f-d.github.io/assets/homework/03/lewitt-instruction-00.jpg)
 
----
----
+I used JavaScript objects to keep track of x and y coordinates for each point, as well as their time of creation and a desired delay between when letters show up during the animation.
 
-# Heading1
-## Heading2
-### Heading3
-#### Heading4
-##### Heading5
-###### Heading6
+I mixed up Wall Drawing 118 and Wall Drawing 1180, which mentions a circle on the wall, and that's why I have the letters for the word "circle" in my background. 🤦🤷
 
-**bold text**
+There were a couple of challenges to achieve this:
 
-*italicized text*
+1. After the 2 random points are chosen, I had to calculate the angle between them in order to rotate the canvas and draw the word "line" in the correct direction. This was achieved using the function ```atan2()``` that gives the angle between points in a cartesian plane.
 
-~~strikethrough text~~
+2. I used some trial-and-error to figure out how to calculate the number of times the letter "i" should be repeated to cover the distance between two points.
 
-Ordered List:
-1. First item
-2. Second item
-3. Third item
+3. To animate the lines, I use their time of creation and ```millis()``` to get the total elapsed time. This can then be divided by the letter delay to calculate how many letters should be drawn during the current frame.
 
-Unordered List:
-- First item
-- Second item
-- Third item
+Angle between points:
+![](./imgs/angle.jpg)
 
-`short code block`
-
-```
-extended code block
-fun() {
-  return 0
-}
-```
-
-Link:  
-[linked text](https://www.example.com)
-
-
-Image with url:  
-![image description](https://dm-gy-6063-2023f-d.github.io/assets/homework/02/clark-espaco-modulado-00.jpg)
-
-
-Image on repo:  
-![image description](./file-name.jpg)
-
-
-To start a new line, add two spaces at the end of a line, like this:  
-this is a new line.
-
-
-To start a new paragraph, leave an empty line between two lines of text.
-
-This is a new paragraph.
+Distance between points:
+![](./imgs/distance.jpg)
